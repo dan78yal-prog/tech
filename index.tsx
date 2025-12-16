@@ -1,15 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+// استيراد المكتبات من importmap
+import React, { useState } from 'react';
+import { createRoot } from 'react-dom/client';
 
-const rootElement = document.getElementById('root');
-if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
-}
+// تعريف المكون الرئيسي للتطبيق
+const App = () => {
+  const [prompt, setPrompt] = useState('');
+  // ... منطق استدعاء Gemini API هنا
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+  return (
+    <div className="flex justify-center items-center h-screen">
+      <h1>مساعد المعلم (Muallim AI) جاهز!</h1>
+      {/* ... واجهة المستخدم الفعلية هنا */}
+    </div>
+  );
+};
+
+// ربط التطبيق بالـ DOM
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App />);
